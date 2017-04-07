@@ -9,6 +9,12 @@ services:
         arguments: [~, AppBundle\Entity\Category, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Category }
+
+    admin.blog_post:
+        class: AppBundle\Admin\BlogPostAdmin
+        arguments: [~, AppBundle\Entity\BlogPost, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Blog post }
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
