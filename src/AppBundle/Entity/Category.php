@@ -30,7 +30,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category", cascade={"remove"})
      */
     private $blogPosts;
 
@@ -83,7 +83,7 @@ class Category
      */
     public function __toString()
     {
-      return $this->getName();
+      return (string)$this->getName();
     }
 }
 

@@ -139,5 +139,13 @@ class BlogPost
     {
       return $this->category;
     }
+
+  /**
+   * @return string
+   */
+  public function __toString()
+  {
+    return (string)$this->getTitle();
+  }
 }
 

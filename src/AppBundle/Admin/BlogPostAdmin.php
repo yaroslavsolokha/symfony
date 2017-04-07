@@ -49,9 +49,4 @@ class BlogPostAdmin extends AbstractAdmin
       ->add('draft')
     ;
   }
-
-  public function toString($object)
-  {
-    return $object->getTitle();
-  }
 }
