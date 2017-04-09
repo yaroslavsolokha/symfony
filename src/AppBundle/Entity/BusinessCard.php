@@ -1,19 +1,18 @@
 <?php
 
-// src/AppBundle/Entity/Category.php
+// src/AppBundle/Entity/BusinessCard.php
 
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Category
  *
- * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
+ * @ORM\Entity
+ * @ORM\Table(name="business_card")
  */
-class Category
+class BusinessCard
 {
     /**
      * @var int
@@ -32,14 +31,11 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category", cascade={"remove"})
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255)
      */
-    private $blogPosts;
-
-    public function __construct()
-    {
-      $this->blogPosts = new ArrayCollection();
-    }
+    private $phone;
 
     /**
      * Get id
@@ -56,13 +52,13 @@ class Category
      *
      * @param string $name
      *
-     * @return Category
+     * @return BusinessCard
      */
     public function setName($name)
     {
-        $this->name = $name;
+      $this->name = $name;
 
-        return $this;
+      return $this;
     }
 
     /**
@@ -72,12 +68,31 @@ class Category
      */
     public function getName()
     {
-        return $this->name;
+      return $this->name;
     }
 
-    public function getBlogPosts()
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return BusinessCard
+     */
+    public function setPhone($phone)
     {
-      return $this->blogPosts;
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 
     /**
@@ -85,7 +100,6 @@ class Category
      */
     public function __toString()
     {
-      return (string)$this->getName();
+      return (string)$this->getPhone();
     }
 }
-

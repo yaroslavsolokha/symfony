@@ -15,6 +15,25 @@ services:
         arguments: [~, AppBundle\Entity\BlogPost, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Blog post }
+
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User }
+
+    admin.group:
+        class: AppBundle\Admin\GroupAdmin
+        arguments: [~, AppBundle\Entity\Group, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Group }
+
+    admin.businessCard:
+        class: AppBundle\Admin\BusinessCardAdmin
+        arguments: [~, AppBundle\Entity\BusinessCard, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Business Card }
+
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
