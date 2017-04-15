@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\Security\Core\User;
+namespace UserBundle\Security\Core\User;
 
-use AppBundle\Entity\User;
+use UserBundle\Entity\User;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseFOSUBProvider;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -37,23 +37,31 @@ class MyFOSUBUserProvider extends BaseFOSUBProvider
    */
   public function loadUserByOAuthUserResponse(UserResponseInterface $response)
   {
+    $username = $response->getUsername();
     $userEmail = $response->getEmail();
-    $user = $this->userManager->findUserByEmail($userEmail);
-
-    // if null just create new user and set it properties
-    if (null === $user) {
-      $username = $response->getRealName();
-      $user = new User();
-      $user->setUsername('aaa');
-
-      // ... save user to database
-
-      return $user;
-    }
-    // else update access token of existing user
     $serviceName = $response->getResourceOwner()->getName();
-    $setter = 'set' . ucfirst($serviceName) . 'AccessToken';
-    $user->$setter($response->getAccessToken());//update access token
+    $user = $this->userManager->findUserByEmail($userEmail);
+    $setterId = 'set' . ucfirst($serviceName) . 'Id';
+    $setterAccessToken = 'set' . ucfirst($serviceName) . 'AccessToken';
+    $getterId = 'get' . ucfirst($serviceName) . 'Id';
+
+    if (null === $user) {
+      // if null just create new user and set it properties
+      $user = $this->userManager->createUser();
+      $user->$setterId($username);
+      $user->$setterAccessToken($response->getAccessToken());
+      $user->setUsername($userEmail);
+      $user->setEmail($userEmail);
+      $user->setPassword('');
+      $user->setEnabled(true);
+      $this->userManager->updateUser($user);
+    } else {
+      // else update access token of existing user
+      if(!$user->$getterId()){
+        $user->$setterId($username);
+      }
+      $user->$setterAccessToken($response->getAccessToken());
+    }
 
     return $user;
   }

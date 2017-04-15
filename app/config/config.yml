@@ -72,12 +72,12 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: UserBundle\Entity\User
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
     group:
-        group_class: AppBundle\Entity\Group
+        group_class: UserBundle\Entity\Group
 
 # app/config/config.yml
 sonata_block:
@@ -102,7 +102,7 @@ hwi_oauth:
             client_id:           1834510506871534
             client_secret:       834958a863dcdc669064e626b88653f7
             scope:               "email"
-            infos_url:     "https://graph.facebook.com/me?fields=id,first_name,last_name,email"
+            infos_url:           "https://graph.facebook.com/me?fields=id,first_name,last_name,email"
             #paths:
             #    username: first_name
             #    email:          email

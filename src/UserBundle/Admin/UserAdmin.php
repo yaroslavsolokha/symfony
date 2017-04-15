@@ -1,8 +1,8 @@
 <?php
 
-// src/AppBundle/Admin/UserAdmin.php
+// src/UserBundle/Admin/UserAdmin.php
 
-namespace AppBundle\Admin;
+namespace UserBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;

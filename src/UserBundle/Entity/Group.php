@@ -1,8 +1,8 @@
 <?php
 
-// src/AppBundle/Entity/Group.php
+// src/UserBundle/Entity/Group.php
 
-namespace AppBundle\Entity;
+namespace UserBundle\Entity;
 
 use FOS\UserBundle\Model\Group as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;

@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+            <div class="card">
+                <form  action="{{ path("fos_user_security_check") }}" method="post">
+                    <div class="card-content">
+                        {% if error %}
+                            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="{{ 'security.login.username'|trans }}" type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="validate" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="{{ 'security.login.password'|trans }}" type="password" id="password" name="_password" required="required" class="validate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <div class="row">
+                            <input type="submit" id="_submit" name="_submit" class="btn" value="{{ 'security.login.submit'|trans }}">
+                        </div>
+                        <div class="row">
+                            <a class="btn" href="{{ hwi_oauth_login_url('facebook') }}">Facebook</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

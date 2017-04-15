@@ -5,7 +5,7 @@ parameters:
 
 services:
     my_user_provider:
-        class: AppBundle\Security\Core\User\MyFOSUBUserProvider
+        class: UserBundle\Security\Core\User\MyFOSUBUserProvider
         arguments: ['@fos_user.user_manager', { facebook: facebook_id }]
 
     admin.category:
@@ -21,14 +21,14 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Blog post }
 
     admin.user:
-        class: AppBundle\Admin\UserAdmin
-        arguments: [~, AppBundle\Entity\User, ~]
+        class: UserBundle\Admin\UserAdmin
+        arguments: [~, UserBundle\Entity\User, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: User }
 
     admin.group:
-        class: AppBundle\Admin\GroupAdmin
-        arguments: [~, AppBundle\Entity\Group, ~]
+        class: UserBundle\Admin\GroupAdmin
+        arguments: [~, UserBundle\Entity\Group, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Group }
 

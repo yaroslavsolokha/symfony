@@ -1,8 +1,8 @@
 <?php
 
-// src/AppBundle/Entity/User.php
+// src/UserBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
@@ -26,10 +26,13 @@ class User extends BaseUser
    */
   private $facebookId;
 
+  /**
+   * @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true)
+   */
   private $facebookAccessToken;
 
   /**
-   * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Group", cascade={"persist"})
+   * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Group", cascade={"persist"})
    * @ORM\JoinTable(name="fos_user_user_group",
    *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")},
    *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id", onDelete="CASCADE")}
@@ -49,8 +52,6 @@ class User extends BaseUser
   public function __construct()
   {
     parent::__construct();
-
-    $this->enabled = true;
     // your own logic
   }
 

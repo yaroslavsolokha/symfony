@@ -16,6 +16,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+            new UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             // These are the other bundles the SonataAdminBundle relies on
