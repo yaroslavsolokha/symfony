@@ -80,9 +80,8 @@ fos_user:
         group_class: UserBundle\Entity\Group
 
 sonata_admin:
-    assets:
-        javascripts:
-            - 'assets/js/settings.js'
+    templates:
+        layout:  SonataAdminBundle::base.html.twig
 
 sonata_block:
     default_contexts: [cms]

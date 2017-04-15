@@ -16,7 +16,8 @@ class UserAdmin extends AbstractAdmin
     $formMapper
       ->add('username', 'text')
       ->add('email', 'text')
-      ->add('password', 'password')
+      ->add('plainPassword', 'password')
+      ->add('enabled', 'checkbox', array('required' => false))
       ->add('groups', 'sonata_type_model_autocomplete', array(
         'multiple' => true,
         'property' => 'name'
