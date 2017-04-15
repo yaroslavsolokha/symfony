@@ -32,6 +32,16 @@ class User extends BaseUser
   private $facebookAccessToken;
 
   /**
+   * @ORM\Column(name="google_id", type="string", length=255, nullable=true)
+   */
+  private $googleId;
+
+  /**
+   * @ORM\Column(name="google_access_token", type="string", length=255, nullable=true)
+   */
+  private $googleAccessToken;
+
+  /**
    * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Group", cascade={"persist"})
    * @ORM\JoinTable(name="fos_user_user_group",
    *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")},
@@ -91,6 +101,44 @@ class User extends BaseUser
   public function getFacebookAccessToken()
   {
     return $this->facebookAccessToken;
+  }
+
+  /**
+   * @param string $googleId
+   * @return User
+   */
+  public function setGoogleId($googleId)
+  {
+    $this->googleId = $googleId;
+
+    return $this;
+  }
+
+  /**
+   * @return string
+   */
+  public function getGoogleId()
+  {
+    return $this->googleId;
+  }
+
+  /**
+   * @param string $googleAccessToken
+   * @return User
+   */
+  public function setGoogleAccessToken($googleAccessToken)
+  {
+    $this->googleAccessToken = $googleAccessToken;
+
+    return $this;
+  }
+
+  /**
+   * @return string
+   */
+  public function getGoogleAccessToken()
+  {
+    return $this->googleAccessToken;
   }
 
   /**
