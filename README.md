@@ -12,6 +12,7 @@ $ cd symfony
 $ bin/console doctrine:schema:create
 $ bin/console fos:user:create admin --super-admin
 $ bower update  --allow-root
+$ bin/console assets:install
 $ bin/console clear:cache
 
 ```
