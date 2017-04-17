@@ -7,12 +7,13 @@ namespace UserBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Sonata\UserBundle\Entity\BaseUser as SonataUser;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
-class User extends BaseUser
+class User extends SonataUser
 {
   /**
    * @ORM\Id
@@ -20,11 +21,6 @@ class User extends BaseUser
    * @ORM\GeneratedValue(strategy="AUTO")
    */
   protected $id;
-
-  /**
-   * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true)
-   */
-  private $facebookId;
 
   /**
    * @ORM\Column(name="facebook_access_token", type="string", length=255, nullable=true)
@@ -64,26 +60,7 @@ class User extends BaseUser
     parent::__construct();
     // your own logic
   }
-
-  /**
-   * @param string $facebookId
-   * @return User
-   */
-  public function setFacebookId($facebookId)
-  {
-    $this->facebookId = $facebookId;
-
-    return $this;
-  }
-
-  /**
-   * @return string
-   */
-  public function getFacebookId()
-  {
-    return $this->facebookId;
-  }
-
+  
   /**
    * @param string $facebookAccessToken
    * @return User

@@ -17,3 +17,6 @@ $ bin/console clear:cache
 
 ```
 ##### 4. Go symfony:dev:8000/app_dev.php/admin
+
+#### TODO
+##### 1. Follow - dev-add_support_for_fos_user2

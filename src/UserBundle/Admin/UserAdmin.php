@@ -4,16 +4,36 @@
 
 namespace UserBundle\Admin;
 
-use Sonata\AdminBundle\Admin\AbstractAdmin;
-use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
 
-class UserAdmin extends AbstractAdmin
+
+class UserAdmin extends SonataUserAdmin
 {
+  /**
+   * {@inheritdoc}
+   */
   protected function configureFormFields(FormMapper $formMapper)
   {
+    parent::configureFormFields($formMapper);
+
     $formMapper
+      ->tab('Business Cards')
+        ->with('General')
+          ->add('businessCards', 'sonata_type_collection',
+              array(),
+              array(
+                'edit' => 'inline',
+                'inline' => 'table',
+              )
+            )
+        ->end()
+      ->end()
+      ->remove('phone')
+    ;
+
+    //$formMapper->remove('some field');
+    /*$formMapper
       ->add('username', 'text')
       ->add('email', 'text')
       ->add('plainPassword', 'password')
@@ -29,16 +49,6 @@ class UserAdmin extends AbstractAdmin
           'inline' => 'table',
         )
       )
-    ;
-  }
-
-  protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-  {
-    $datagridMapper->add('username');
-  }
-
-  protected function configureListFields(ListMapper $listMapper)
-  {
-    $listMapper->addIdentifier('username');
+    ;*/
   }
 }

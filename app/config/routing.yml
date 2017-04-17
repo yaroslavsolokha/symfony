@@ -14,10 +14,6 @@ hwi_oauth_connect:
     resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
     prefix:   /login
 
-#hwi_oauth_security:
-#    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-#    prefix: /login
-
 facebook_login:
     path: /login/check-facebook
 
@@ -30,6 +26,10 @@ fos_user:
 fos_user_group:
     resource: "@FOSUserBundle/Resources/config/routing/group.xml"
     prefix: /group
+
+sonata_user_admin_security:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    prefix: /
 
 admin_area:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"

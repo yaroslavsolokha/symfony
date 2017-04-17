@@ -41,14 +41,14 @@ class MyFOSUBUserProvider extends BaseFOSUBProvider
     $userEmail = $response->getEmail();
     $serviceName = $response->getResourceOwner()->getName();
     $user = $this->userManager->findUserByEmail($userEmail);
-    $setterId = 'set' . ucfirst($serviceName) . 'Id';
+    $setterUid = 'set' . ucfirst($serviceName) . 'Uid';
     $setterAccessToken = 'set' . ucfirst($serviceName) . 'AccessToken';
-    $getterId = 'get' . ucfirst($serviceName) . 'Id';
+    $getterUid = 'get' . ucfirst($serviceName) . 'Uid';
 
     if (null === $user) {
       // if null just create new user and set it properties
       $user = $this->userManager->createUser();
-      $user->$setterId($username);
+      $user->$setterUid($username);
       $user->$setterAccessToken($response->getAccessToken());
       $user->setUsername($userEmail);
       $user->setEmail($userEmail);
@@ -57,8 +57,8 @@ class MyFOSUBUserProvider extends BaseFOSUBProvider
       $this->userManager->updateUser($user);
     } else {
       // else update access token of existing user
-      if(!$user->$getterId()){
-        $user->$setterId($username);
+      if(!$user->$getterUid()){
+        $user->$setterUid($username);
       }
       $user->$setterAccessToken($response->getAccessToken());
     }

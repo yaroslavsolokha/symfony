@@ -20,23 +20,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Blog post }
 
-    admin.user:
-        class: UserBundle\Admin\UserAdmin
-        arguments: [~, UserBundle\Entity\User, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: User }
-
-    admin.group:
-        class: UserBundle\Admin\GroupAdmin
-        arguments: [~, UserBundle\Entity\Group, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Group }
-
     admin.businessCard:
         class: AppBundle\Admin\BusinessCardAdmin
         arguments: [~, AppBundle\Entity\BusinessCard, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Business Card }
+            - { name: sonata.admin, manager_type: orm, label: Business Card, show_in_dashboard: false }
 
 #    service_name:
 #        class: AppBundle\Directory\ClassName
