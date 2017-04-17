@@ -82,6 +82,20 @@ sonata_user:
 
 sonata_admin:
     title:      Symfony
+    dashboard:
+        blocks:
+            - { position: left, type: sonata.admin.block.admin_list }
+        groups:
+            blog:
+                label: Blog
+                items:
+                    - admin.blog_post
+                    - admin.category
+            user:
+                label: Users managment
+                items:
+                    - sonata.user.admin.user
+                    - sonata.user.admin.group
     templates:
         layout:  SonataAdminBundle::base.html.twig
 
@@ -92,7 +106,7 @@ sonata_block:
 
 hwi_oauth:
     connect:
-        account_connector: my_user_provider
+        account_connector: user_provider
     firewall_names: [main]
     resource_owners:
         facebook:
