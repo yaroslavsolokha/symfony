@@ -9,7 +9,3 @@ parameters:
     mailer_user: yaroslav.solokha@gmail.com
     mailer_password: null
     secret: 8ed60d15706d13261ee6705544edc13db3b61711
-    facebook_client_id: 1834510506871534
-    facebook_client_secret: 834958a863dcdc669064e626b88653f7
-    google_client_id: 289872286967-n8jv6dh4ds29fon1fo53d4luhrr713k5.apps.googleusercontent.com
-    google_client_secret: a46i7rjxVnx3nP-4oJn-Udb5
