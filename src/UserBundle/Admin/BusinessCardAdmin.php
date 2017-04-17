@@ -1,8 +1,8 @@
 <?php
 
-// src/AppBundle/Admin/BusinessCardAdmin.php
+// src/UserBundle/Admin/BusinessCardAdmin.php
 
-namespace AppBundle\Admin;
+namespace UserBundle\Admin;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;

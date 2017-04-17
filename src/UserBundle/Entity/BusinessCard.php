@@ -1,8 +1,8 @@
 <?php
 
-// src/AppBundle/Entity/BusinessCard.php
+// src/UserBundle/Entity/BusinessCard.php
 
-namespace AppBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

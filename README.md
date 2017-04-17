@@ -1,5 +1,6 @@
 Symfony project
 =======
+Inside - FOSuserbundle, SonataAdminBundle, SonataUserBundle, HWIOAuthBundle, Material design, Bower.
 
 #### Setup
 ##### 1. See https://github.com/yaroslavsolokha/server

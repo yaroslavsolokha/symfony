@@ -47,7 +47,7 @@ class User extends SonataUser
   protected $groups;
 
   /**
-   * @ORM\ManyToMany(targetEntity="AppBundle\Entity\BusinessCard", cascade={"persist"})
+   * @ORM\ManyToMany(targetEntity="UserBundle\Entity\BusinessCard", cascade={"persist"})
    * @ORM\JoinTable(name="fos_user_business_card",
    *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
    *      inverseJoinColumns={@ORM\JoinColumn(name="business_card_id", referencedColumnName="id")}
