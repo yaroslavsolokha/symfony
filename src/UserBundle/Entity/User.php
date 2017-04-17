@@ -55,6 +55,15 @@ class User extends SonataUser
    */
   protected $businessCards;
 
+  /**
+   * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Tag", cascade={"persist"})
+   * @ORM\JoinTable(name="fos_user_tag",
+   *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+   *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
+   * )
+   */
+  protected $tags;
+
   public function __construct()
   {
     parent::__construct();
@@ -166,6 +175,59 @@ class User extends SonataUser
   {
     if ($this->getBusinessCards()->contains($businessCard)) {
       $this->getBusinessCards()->removeElement($businessCard);
+    }
+
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getTags()
+  {
+    return $this->tags ?: $this->tags = new ArrayCollection();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getTagNames()
+  {
+    $names = array();
+    foreach ($this->getTags() as $tag) {
+      $names[] = $tag->getName();
+    }
+
+    return $names;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function hasTag($name)
+  {
+    return in_array($name, $this->getTagNames());
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function addTag($tag)
+  {
+    if (!$this->getTags()->contains($tag)) {
+      $this->getTags()->add($tag);
+    }
+
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function removeTag($tag)
+  {
+    if ($this->getTags()->contains($tag)) {
+      $this->getTags()->removeElement($tag);
     }
 
     return $this;

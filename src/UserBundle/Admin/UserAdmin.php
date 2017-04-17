@@ -29,26 +29,16 @@ class UserAdmin extends SonataUserAdmin
             )
         ->end()
       ->end()
+      ->tab('Tags')
+        ->with('General')
+          ->add('tags', 'sonata_type_model_autocomplete', array(
+              'multiple' => true,
+              'property' => 'name'
+            )
+          )
+        ->end()
+      ->end()
       ->remove('phone')
     ;
-
-    //$formMapper->remove('some field');
-    /*$formMapper
-      ->add('username', 'text')
-      ->add('email', 'text')
-      ->add('plainPassword', 'password')
-      ->add('enabled', 'checkbox', array('required' => false))
-      ->add('groups', 'sonata_type_model_autocomplete', array(
-        'multiple' => true,
-        'property' => 'name'
-      ))
-      ->add('businessCards', 'sonata_type_collection',
-        array(),
-        array(
-          'edit' => 'inline',
-          'inline' => 'table',
-        )
-      )
-    ;*/
   }
 }
