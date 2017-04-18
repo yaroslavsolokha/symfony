@@ -37,28 +37,34 @@ class MyFOSUBUserProvider extends BaseFOSUBProvider
    */
   public function loadUserByOAuthUserResponse(UserResponseInterface $response)
   {
-    $username = $response->getUsername();
     $userEmail = $response->getEmail();
     $serviceName = $response->getResourceOwner()->getName();
     $user = $this->userManager->findUserByEmail($userEmail);
-    $setterUid = 'set' . ucfirst($serviceName) . 'Uid';
+    $setterData = 'set' . ucfirst($serviceName) . 'Data';
+    $setterName = 'set' . ucfirst($serviceName) . 'Name';
     $setterAccessToken = 'set' . ucfirst($serviceName) . 'AccessToken';
-    $getterUid = 'get' . ucfirst($serviceName) . 'Uid';
+    $getterData = 'get' . ucfirst($serviceName) . 'Data';
+    $getterName = 'get' . ucfirst($serviceName) . 'Name';
 
     if (null === $user) {
       // if null just create new user and set it properties
-      $user = $this->userManager->createUser();
-      $user->$setterUid($username);
+      //@todo add exception if does not exist email
+      $user = new User();
       $user->$setterAccessToken($response->getAccessToken());
+      $user->$setterName($response->getFirstName().' '.$response->getLastName());
       $user->setUsername($userEmail);
       $user->setEmail($userEmail);
+      $user->setFirstname($response->getFirstName());
+      $user->setLastname($response->getLastName());
       $user->setPassword('');
       $user->setEnabled(true);
       $this->userManager->updateUser($user);
     } else {
-      // else update access token of existing user
-      if(!$user->$getterUid()){
-        $user->$setterUid($username);
+      if(!$user->$getterData()){
+        $user->$setterData($response->getResponse());
+      }
+      if(!$user->$getterName()){
+        $user->$setterName($response->getFirstName().' '.$response->getLastName());
       }
       $user->$setterAccessToken($response->getAccessToken());
     }

@@ -28,14 +28,9 @@ class User extends SonataUser
   private $facebookAccessToken;
 
   /**
-   * @ORM\Column(name="google_id", type="string", length=255, nullable=true)
+   * @ORM\Column(name="gplus_access_token", type="string", length=255, nullable=true)
    */
-  private $googleId;
-
-  /**
-   * @ORM\Column(name="google_access_token", type="string", length=255, nullable=true)
-   */
-  private $googleAccessToken;
+  private $gplusAccessToken;
 
   /**
    * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Group", cascade={"persist"})
@@ -47,10 +42,10 @@ class User extends SonataUser
   protected $groups;
 
   /**
-   * @ORM\ManyToMany(targetEntity="UserBundle\Entity\BusinessCard", cascade={"persist"})
+   * @ORM\ManyToMany(targetEntity="UserBundle\Entity\BusinessCard", cascade={"persist", "remove"})
    * @ORM\JoinTable(name="fos_user_business_card",
-   *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-   *      inverseJoinColumns={@ORM\JoinColumn(name="business_card_id", referencedColumnName="id")}
+   *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")},
+   *      inverseJoinColumns={@ORM\JoinColumn(name="business_card_id", referencedColumnName="id", onDelete="CASCADE")}
    * )
    */
   protected $businessCards;
@@ -90,12 +85,12 @@ class User extends SonataUser
   }
 
   /**
-   * @param string $googleId
+   * @param string $gplusAccessToken
    * @return User
    */
-  public function setGoogleId($googleId)
+  public function setGplusAccessToken($gplusAccessToken)
   {
-    $this->googleId = $googleId;
+    $this->gplusAccessToken = $gplusAccessToken;
 
     return $this;
   }
@@ -103,28 +98,9 @@ class User extends SonataUser
   /**
    * @return string
    */
-  public function getGoogleId()
+  public function getGplusAcessToken()
   {
-    return $this->googleId;
-  }
-
-  /**
-   * @param string $googleAccessToken
-   * @return User
-   */
-  public function setGoogleAccessToken($googleAccessToken)
-  {
-    $this->googleAccessToken = $googleAccessToken;
-
-    return $this;
-  }
-
-  /**
-   * @return string
-   */
-  public function getGoogleAccessToken()
-  {
-    return $this->googleAccessToken;
+    return $this->gplusAccessToken;
   }
 
   /**

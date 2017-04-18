@@ -97,6 +97,7 @@ sonata_admin:
                     - sonata.user.admin.user
                     - sonata.user.admin.group
                     - admin.tag
+                    - admin.business_card
     templates:
         layout:  SonataAdminBundle::base.html.twig
 

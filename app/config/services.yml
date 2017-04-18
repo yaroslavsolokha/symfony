@@ -20,11 +20,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Blog post }
 
-    admin.businessCard:
+    admin.business_card:
         class: UserBundle\Admin\BusinessCardAdmin
         arguments: [~, UserBundle\Entity\BusinessCard, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Business Card, show_in_dashboard: false }
+            - { name: sonata.admin, manager_type: orm, label: Business Card }
 
     admin.tag:
         class: UserBundle\Admin\TagAdmin
