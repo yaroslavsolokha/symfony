@@ -38,6 +38,15 @@ class BusinessCard
     private $phone;
 
     /**
+     * @ORM\ManyToOne(
+     *      targetEntity="UserBundle\Entity\User",
+     *      inversedBy="businessCards"
+     * )
+     * @ORM\JoinColumn(onDelete="CASCADE")
+     */
+    private $user;
+
+    /**
      * Get id
      *
      * @return int
@@ -94,6 +103,30 @@ class BusinessCard
     {
         return $this->phone;
     }
+
+  /**
+   * Set user
+   *
+   * @param string $user
+   *
+   * @return BusinessCard
+   */
+  public function setUser($user)
+  {
+    $this->user = $user;
+
+    return $this;
+  }
+
+  /**
+   * Get user
+   *
+   * @return string
+   */
+  public function getUser()
+  {
+    return $this->user;
+  }
 
     /**
      * @return string

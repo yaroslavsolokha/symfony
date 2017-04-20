@@ -10,6 +10,18 @@ use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
 
 class UserAdmin extends SonataUserAdmin
 {
+  public function prePersist($user)
+  {
+    parent::prePersist($user);
+    $this->preUpdate($user);
+  }
+
+  public function preUpdate($user)
+  {
+    parent::preUpdate($user);
+    $user->setBusinessCards($user->getBusinessCards());
+  }
+
   /**
    * {@inheritdoc}
    */

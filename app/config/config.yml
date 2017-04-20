@@ -92,7 +92,7 @@ sonata_admin:
                     - admin.blog_post
                     - admin.category
             user:
-                label: Users managment
+                label: Users management
                 items:
                     - sonata.user.admin.user
                     - sonata.user.admin.group
