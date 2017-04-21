@@ -1,0 +1,28 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="user container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m6 offset-m3 l4 offset-l4">
+                <div class="card">
+                    <div class="card-content">
+                        {% block login_content %} {% endblock %}
+                    </div>
+                    <div class="card-action">
+                        {% block login_button %} {% endblock %}
+                        <div class="row">
+                            <div class="col s12">
+                                <a class="btn col s12 blue" href="{{ hwi_oauth_login_url('facebook') }}">Facebook</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <a class="btn col s12 red" href="{{ hwi_oauth_login_url('google') }}">Google</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
