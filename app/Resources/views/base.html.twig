@@ -4,7 +4,9 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+            <link href = "{{ asset('assets/vendor/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
             <link href = "{{ asset('assets/vendor/materialize/dist/css/materialize.min.css') }}" rel="stylesheet" />
+            <link href = "{{ asset('assets/vendor/bootstrap-social/bootstrap-social.css') }}" rel="stylesheet" />
             <link href = "{{ asset('assets/css/custom.css') }}" rel="stylesheet" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
