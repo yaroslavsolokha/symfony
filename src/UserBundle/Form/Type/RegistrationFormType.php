@@ -12,11 +12,9 @@ class RegistrationFormType extends AbstractType
    */
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
-    $builder->add('gender');
-    //echo 2;
-    //exit;
-    //parent::buildForm($builder, $options);
-
+    $builder
+      ->add('gender', null, array('position' => array('before' => 'plainPassword')))
+    ;
   }
 
   public function getParent()
