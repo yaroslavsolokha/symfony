@@ -20,6 +20,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Blog post }
 
+    admin.form.registration:
+        class: UserBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type, alias: user_registration }
+
     admin.business_card:
         class: UserBundle\Admin\BusinessCardAdmin
         arguments: [~, UserBundle\Entity\BusinessCard, ~]
