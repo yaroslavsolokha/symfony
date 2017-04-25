@@ -31,7 +31,7 @@ security:
                     gplus: "/login/check-google"
                 login_path:  /login
                 oauth_user_provider:
-                    service: user_provider
+                    service: my_user_provider
             logout:       true
             anonymous:    true
 

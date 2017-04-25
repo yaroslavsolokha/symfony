@@ -57,7 +57,7 @@ sonata_block:
 
 hwi_oauth:
     connect:
-        account_connector: user_provider
+        account_connector: my_user_provider
     firewall_names: [main]
     resource_owners:
         facebook:

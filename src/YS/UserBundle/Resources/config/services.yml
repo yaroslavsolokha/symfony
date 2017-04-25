@@ -1,5 +1,5 @@
 services:
-    user_provider:
+    my_user_provider:
         class: YS\UserBundle\Security\Core\User\MyFOSUBUserProvider
         arguments: ['@fos_user.user_manager', { facebook: facebook_id }]
 
