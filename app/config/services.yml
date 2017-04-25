@@ -5,14 +5,14 @@ parameters:
 
 services:
     admin.category:
-        class: AppBundle\Admin\CategoryAdmin
-        arguments: [~, AppBundle\Entity\Category, ~]
+        class: YS\AppBundle\Admin\CategoryAdmin
+        arguments: [~, YS\AppBundle\Entity\Category, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Category }
 
     admin.blog_post:
-        class: AppBundle\Admin\BlogPostAdmin
-        arguments: [~, AppBundle\Entity\BlogPost, ~]
+        class: YS\AppBundle\Admin\BlogPostAdmin
+        arguments: [~, YS\AppBundle\Entity\BlogPost, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Blog post }
 
