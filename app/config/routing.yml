@@ -3,4 +3,4 @@ app:
     type:     annotation
 
 ys_user:
-    resource: "@UserBundle/Resources/config/routing.yml"
+    resource: "@YSUserBundle/Resources/config/routing.yml"

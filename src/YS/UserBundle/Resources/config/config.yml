@@ -3,7 +3,7 @@ parameters:
 
 twig:
     form_themes:
-        - 'UserBundle::form/fields.html.twig'
+        - 'YSUserBundle::form/fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -48,7 +48,7 @@ sonata_admin:
                     - admin.tag
                     - admin.business_card
     templates:
-        layout:  UserBundle::SonataAdminBundle\base.html.twig
+        layout:  YSUserBundle::SonataAdminBundle\base.html.twig
 
 sonata_block:
     default_contexts: [cms]

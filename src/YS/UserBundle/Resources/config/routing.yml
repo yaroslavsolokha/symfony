@@ -1,5 +1,5 @@
 user:
-    resource: "@UserBundle/Controller/"
+    resource: "@YSUserBundle/Controller/"
     type:     annotation
 
 hwi_oauth_redirect:
