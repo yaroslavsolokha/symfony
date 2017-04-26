@@ -10,11 +10,12 @@ Inside - FOSuserbundle, SonataAdminBundle, SonataUserBundle, HWIOAuthBundle, Mat
 $ cd server
 $ docker exec -it php /bin/sh
 $ cd symfony
+$ bin/console doctrine:database:create
 $ bin/console doctrine:schema:create
 $ bin/console fos:user:create admin --super-admin
 $ bower update  --allow-root
 $ bin/console assets:install
-$ bin/console clear:cache
+$ bin/console cache:clear
 
 ```
 ##### 4. Go symfony:dev:8000/app_dev.php/admin
