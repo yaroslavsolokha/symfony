@@ -1,6 +1,6 @@
 Symfony project
 =======
-Inside - FOSuserbundle, SonataAdminBundle, SonataUserBundle, HWIOAuthBundle, Material design, Bower.
+Inside - YSUserBundle
 
 #### Setup
 ##### 1. See https://github.com/yaroslavsolokha/server
@@ -10,15 +10,18 @@ Inside - FOSuserbundle, SonataAdminBundle, SonataUserBundle, HWIOAuthBundle, Mat
 $ cd server
 $ docker exec -it php /bin/sh
 $ cd symfony
+$ composer update
+```
+##### 4. Install and config YSUserBundle - https://github.com/yaroslavsolokha/YSUserBundle
+##### 5. Create or update DB, schema
+```
 $ bin/console doctrine:database:create
 $ bin/console doctrine:schema:create
-$ bin/console fos:user:create admin --super-admin
-$ bower update  --allow-root
+```
+##### 6. Install assets, clear cache
+```
 $ bin/console assets:install
 $ bin/console cache:clear
 
 ```
-##### 4. Go symfony:dev:8000/app_dev.php/admin
-
-#### TODO
-##### 1. Follow - dev-add_support_for_fos_user2
+##### 7. Go symfony:dev:8000/app_dev.php/admin
