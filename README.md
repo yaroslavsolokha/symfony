@@ -12,12 +12,12 @@ $ docker exec -it php /bin/sh
 $ cd symfony
 $ composer update
 ```
-##### 4. Install and config YSUserBundle - https://github.com/yaroslavsolokha/YSUserBundle
-##### 5. Create or update DB, schema
+##### 4. Create DB, schema
 ```
 $ bin/console doctrine:database:create
 $ bin/console doctrine:schema:create
 ```
+##### 5. Install and config YSUserBundle - https://github.com/yaroslavsolokha/YSUserBundle
 ##### 6. Install assets, clear cache
 ```
 $ bin/console assets:install
