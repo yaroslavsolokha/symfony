@@ -1,6 +1,6 @@
 Symfony project
 =======
-Inside - YSUserBundle
+Inside - YSUserBundle, YSBlogBundle
 
 #### Setup
 ##### 1. See https://github.com/yaroslavsolokha/server
@@ -24,4 +24,5 @@ $ bin/console assets:install
 $ bin/console cache:clear
 
 ```
-##### 7. Go symfony:dev:8000/app_dev.php/admin
+##### 7. Install and config YSBlogBundle - https://github.com/yaroslavsolokha/YSBlogBundle
+##### 8. Go symfony:dev:8000/app_dev.php/admin

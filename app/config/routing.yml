@@ -1,6 +1,2 @@
-app:
-    resource: "@YSAppBundle/Controller/"
-    type:     annotation
-
-ys_user:
+ys_user_bundle:
     resource: "@YSUserBundle/Resources/config/routing.yml"

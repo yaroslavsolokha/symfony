@@ -30,12 +30,19 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "twig/twig": "^1.0||^2.0",
         "ys/user-bundle" : "dev-master",
-        "sonata-project/user-bundle": "dev-add_support_for_fos_user2"
+        "sonata-project/user-bundle": "dev-add_support_for_fos_user2",
+        "ys/blog-bundle" : "dev-master"
     },
-    "repositories" : [{
-        "type" : "vcs",
-        "url" : "https://github.com/yaroslavsolokha/YSUserBundle.git"
-        }],
+    "repositories" : [
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/yaroslavsolokha/YSUserBundle.git"
+        },
+        {
+            "type" : "vcs",
+            "url" : "https://github.com/yaroslavsolokha/YSBlogBundle.git"
+        }
+    ],
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"

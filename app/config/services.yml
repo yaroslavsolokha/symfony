@@ -4,18 +4,6 @@ parameters:
 #    parameter_name: value
 
 services:
-    admin.category:
-        class: YS\AppBundle\Admin\CategoryAdmin
-        arguments: [~, YS\AppBundle\Entity\Category, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Category }
-
-    admin.blog_post:
-        class: YS\AppBundle\Admin\BlogPostAdmin
-        arguments: [~, YS\AppBundle\Entity\BlogPost, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: Blog post }
-
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
