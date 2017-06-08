@@ -5,6 +5,10 @@ Inside - YSUserBundle, YSBlogBundle
 #### Setup
 ##### 1. See https://github.com/yaroslavsolokha/server
 ##### 2. Up Docker
+```
+$ cd server
+$ docker-compose up
+```
 ##### 3. First setup
 ```
 $ cd server
