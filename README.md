@@ -9,7 +9,15 @@ Inside - YSUserBundle, YSBlogBundle
 $ cd server
 $ docker-compose up
 ```
-##### 3. First setup
+##### 3. Create DB, schema
+```
+$ cd server
+$ docker exec -it php /bin/sh
+$ cd symfony
+$ bin/console doctrine:database:create
+$ bin/console doctrine:schema:create
+```
+##### 4. First setup
 ```
 $ cd server
 $ docker exec -it php /bin/sh
@@ -29,4 +37,4 @@ $ bin/console cache:clear
 
 ```
 ##### 7. Install and config YSBlogBundle - https://github.com/yaroslavsolokha/YSBlogBundle
-##### 8. Go symfony:dev:8000/app_dev.php/admin
+##### 8. Go symfony.dev:8000/app_dev.php, symfony.dev:8000/app_dev.php/admin
