@@ -1,7 +1,6 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: "@YSUserBundle/Resources/config/security.yml" }
     - { resource: services.yml }
     - { resource: "@YSUserBundle/Resources/config/config.yml" }
     - { resource: "@YSBlogBundle/Resources/config/config.yml" }
